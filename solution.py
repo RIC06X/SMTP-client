@@ -60,13 +60,13 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Fill in start
     # Fill in end
     clientSocket.send(msg.encode())
-
+    recv5 = clientSocket.recv(1024).decode()
 
     # Message ends with a single period.
     # Fill in start
     # Fill in end
     clientSocket.send(endmsg.encode())
-    # recv5 = clientSocket.recv(1024).decode()
+    recv6 = clientSocket.recv(1024).decode()
     # print(recv5)
 
 
@@ -75,7 +75,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Fill in end
     Qmessage = 'QUIT\r\n'
     clientSocket.send(Qmessage.encode())
-    recv6 = clientSocket.recv(1024).decode()
+    recv7 = clientSocket.recv(1024).decode()
 
     clientSocket.close()
 
