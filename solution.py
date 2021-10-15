@@ -33,7 +33,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     clientSocket.send(From.encode())
     recv2 = clientSocket.recv(1024).decode()
     print(recv2)
-    if recv1[:3] != '250':
+    if recv2[:3] != '250':
         print('250 reply not received from server.')
 
     # Send RCPT TO command and print server response.
@@ -43,7 +43,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     clientSocket.send(To.encode())
     recv3 = clientSocket.recv(1024).decode()
     print(recv3)
-    if recv1[:3] != '250':
+    if recv3[:3] != '250':
         print('250 reply not received from server.')
 
     # Send DATA command and print server response.
@@ -53,8 +53,8 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     clientSocket.send(Data.encode())
     recv4 = clientSocket.recv(1024).decode()
     print(recv4)
-    if recv1[:3] != '354':
-        print('354 error')
+    # if recv4[:3] != '354':
+    #     print('354 error')
 
     # Send message data.
     # Fill in start
