@@ -13,10 +13,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     clientSocket = socket(AF_INET, SOCK_STREAM)
     clientSocket.connect((mailserver, port))
 
-    recv = clientSocket.recv(1024).decode()
-    # print(recv)
-    # if recv[:3] != '220':
-    #     print('220 reply not received from server.')
+    # recv = clientSocket.recv(1024).decode()
 
     # Send HELO command and print server response.
     heloCommand = 'HELO Alice\r\n'
@@ -76,7 +73,6 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     Qmessage = 'QUIT\r\n'
     clientSocket.send(Qmessage.encode())
     recv7 = clientSocket.recv(1024).decode()
-
     clientSocket.close()
 
 
